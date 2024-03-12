@@ -1,1 +1,4 @@
-# streams-kata
+![Merkle](merkle-logo.png "Merkle")
+
+# streams exercises
+
