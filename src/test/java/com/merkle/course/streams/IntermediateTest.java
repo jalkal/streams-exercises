@@ -24,7 +24,7 @@ class IntermediateTest {
      */
     @Test
     void stream_filter(){
-        Stream<String> stream = Stream.of("hello", "", "world");
+        Stream<String> stream = Stream.of("hello", "", "world"); //Modify this line
 
         assertThat(stream).containsExactly("hello", "world");
     }
