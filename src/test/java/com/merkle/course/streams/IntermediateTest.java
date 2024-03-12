@@ -1,10 +1,12 @@
 package com.merkle.course.streams;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class IntermediateTest {
 
@@ -15,6 +17,16 @@ class IntermediateTest {
     void stream_map(){
         Stream<String> stream = Stream.of(1, 2, 3, 4).map(Objects::toString);
 
-        Assertions.assertThat(stream).containsExactly("1", "2", "3", "4");
+        assertThat(stream).containsExactly("1", "2", "3", "4");
+    }
+
+    /**
+     * Filter Stream items with filter()
+     */
+    @Test
+    void stream_filter(){
+        Stream<String> stream = Stream.of("hello", "", "world").filter(Predicate.not(String::isEmpty));
+
+        assertThat(stream).containsExactly("hello", "world");
     }
 }
