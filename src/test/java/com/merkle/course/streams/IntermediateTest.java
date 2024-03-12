@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class IntermediateTest {
 
     /**
-     * Convert Stream with map()
+     * Convert Stream items with map()
      */
     @Test
     void stream_map(){
@@ -17,6 +17,16 @@ class IntermediateTest {
         Stream<String> stream = null; //Stream.of(1, 2, 3, 4); //Modify this line
 
         assertThat(stream).containsExactly("1", "2", "3", "4");
+    }
+
+    /**
+     * Convert Stream items with flatMap()
+     */
+    @Test
+    void stream_flatMap(){
+        Stream<String> stream = Stream.of("hello", "world");
+
+        assertThat(stream).containsExactly("h", "e", "l", "l", "o", "w", "o", "r", "l", "d");
     }
 
     /**
