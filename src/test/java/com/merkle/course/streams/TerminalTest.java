@@ -38,7 +38,7 @@ class TerminalTest {
     }
 
     /**
-     * Get first employee from Stream
+     * Get first employee from employeeStream
      */
     @Test
     void stream_findFirst() {
@@ -48,7 +48,7 @@ class TerminalTest {
     }
 
     /**
-     * Get employee with the lowest salary
+     * Get employee with the lowest salary from employeeStream
      */
     @Test
     void stream_min() {
@@ -58,7 +58,7 @@ class TerminalTest {
     }
 
     /**
-     * Get employee with the highest salary
+     * Get employee with the highest salary from employeeStream
      */
     @Test
     void stream_max() {
@@ -68,7 +68,7 @@ class TerminalTest {
     }
 
     /**
-     * Get sum all employee salaries
+     * Get sum all employee salaries from employeeStream
      */
     @Test
     void stream_sum() {
@@ -78,7 +78,7 @@ class TerminalTest {
     }
 
     /**
-     * Get average of all employee salaries
+     * Get average of all employee salaries from employeeStream
      */
     @Test
     void stream_average() {
@@ -88,12 +88,12 @@ class TerminalTest {
     }
 
     /**
-     * Find if any employee has a salary higher than 200.00
+     * Find if any employee has a salary higher than 200.00 from employeeStream
      */
     @Test
     void stream_anyMatch(){
 
-        boolean anySalaryHigherThan200 = employeeStream.mapToDouble(Employee::salary).anyMatch(salary -> salary > 200.00);
+        Boolean anySalaryHigherThan200 = employeeStream.mapToDouble(Employee::salary).anyMatch(salary -> salary > 200.00);
         assertThat(anySalaryHigherThan200).isFalse();
     }
 
