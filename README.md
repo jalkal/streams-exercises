@@ -18,3 +18,12 @@
 - Skip Stream items with `skip()`
 - Combine `skip()` and `limit()`
 - Remove duplicates Stream items with `distinct()`
+
+### 3 - Terminal operations, open TerminalTest and make the test pass
+- Use a stream forEach
+- Get first element from stream
+- Get element with the lowest value from stream
+- Get element with the highest value from stream
+- Sum all elements of a stream
+- Average of all elements of a stream
+- Identify if a condition is meet in any stream item
