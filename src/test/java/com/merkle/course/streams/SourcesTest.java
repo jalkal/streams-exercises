@@ -3,7 +3,6 @@ package com.merkle.course.streams;
 import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -67,7 +66,7 @@ class SourcesTest {
      */
     @Test
     void stream_ofNullable(){
-        Stream<String> stream = Stream.of(null);
+        Stream<String> stream = Stream.of(null); //Modify this line
 
         assertThat(stream).isEmpty();
     }
