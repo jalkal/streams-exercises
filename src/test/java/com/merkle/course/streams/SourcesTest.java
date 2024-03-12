@@ -51,4 +51,14 @@ class SourcesTest {
 
         assertThat(stream).containsExactly(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     }
+
+    /**
+     * Create Stream using IntStream.rangeClosed()
+     */
+    @Test
+    void stream_rangeClosed(){
+        Stream<Integer> stream = IntStream.rangeClosed(0, 10).boxed();
+
+        assertThat(stream).containsExactly(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    }
 }
