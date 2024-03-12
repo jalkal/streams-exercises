@@ -44,7 +44,7 @@ class IntermediateTest {
      */
     @Test
     void stream_limit(){
-        Stream<String> stream = Stream.of("hello", "world", "hello", "world"); //Modify this line
+        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world"); //Modify this line
 
         assertThat(stream).containsExactly("hello", "world");
     }
@@ -54,8 +54,8 @@ class IntermediateTest {
      */
     @Test
     void stream_skip(){
-        Stream<String> stream = Stream.of("hello", "world", "hello", "world"); //Modify this line
+        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world"); //Modify this line
 
-        assertThat(stream).containsExactly("world", "hello", "world");
+        assertThat(stream).containsExactly("this", "hello", "world");
     }
 }
