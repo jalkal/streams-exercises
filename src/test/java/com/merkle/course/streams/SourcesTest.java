@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 class SourcesTest {
 
@@ -12,7 +13,7 @@ class SourcesTest {
      */
     @Test
     void stream_of(){
-        List<String> list = null; //Modify this line
+        List<String> list = Stream.of("hello", "world").toList();
 
         Assertions.assertThat(list).containsExactly("hello", "world");
     }
