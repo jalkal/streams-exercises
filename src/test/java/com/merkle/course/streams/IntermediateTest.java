@@ -55,7 +55,7 @@ class IntermediateTest {
      */
     @Test
     void stream_skip(){
-        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world").skip(2); //Modify this line
+        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world").skip(2);
 
         assertThat(stream).containsExactly("this", "hello", "world");
     }
@@ -68,5 +68,15 @@ class IntermediateTest {
         Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world").skip(2).limit(1);
 
         assertThat(stream).containsExactly("this");
+    }
+
+    /**
+     * Remove duplicates Stream items with distinct()
+     */
+    @Test
+    void stream_distinct(){
+        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world").distinct();
+
+        assertThat(stream).containsExactly("hello", "world", "this");
     }
 }
