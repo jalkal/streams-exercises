@@ -38,4 +38,14 @@ class IntermediateTest {
 
         assertThat(stream).containsExactly("hello", "world");
     }
+
+    /**
+     * Limit Stream items with limit()
+     */
+    @Test
+    void stream_limit(){
+        Stream<String> stream = Stream.of("hello", "world", "hello", "world"); //Modify this line
+
+        assertThat(stream).containsExactly("hello", "world");
+    }
 }
