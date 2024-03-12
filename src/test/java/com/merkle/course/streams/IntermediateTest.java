@@ -13,10 +13,9 @@ class IntermediateTest {
      */
     @Test
     void stream_map(){
-        //Todo uncomment this line
-        Stream<String> stream = null; //Stream.of(1, 2, 3, 4); //Modify this line
+        Stream<String> stream = Stream.of("a", "b", "c", "d"); //Modify this line
 
-        assertThat(stream).containsExactly("1", "2", "3", "4");
+        assertThat(stream).containsExactly("A", "B", "C", "D");
     }
 
     /**
