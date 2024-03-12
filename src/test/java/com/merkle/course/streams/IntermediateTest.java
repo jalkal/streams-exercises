@@ -68,4 +68,14 @@ class IntermediateTest {
 
         assertThat(stream).containsExactly("this");
     }
+
+    /**
+     * Remove duplicates Stream items with distinct()
+     */
+    @Test
+    void stream_distinct(){
+        Stream<String> stream = Stream.of("hello", "world", "this", "hello", "world"); //Modify this line
+
+        assertThat(stream).containsExactly("hello", "world", "this");
+    }
 }
