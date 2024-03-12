@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 class SourcesTest {
 
     /**
-     * Generate list using Stream.of()
+     * Create Stream using Stream.of()
      */
     @Test
     void stream_of(){
