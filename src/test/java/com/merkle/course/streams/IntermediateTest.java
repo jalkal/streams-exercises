@@ -48,4 +48,14 @@ class IntermediateTest {
 
         assertThat(stream).containsExactly("hello", "world");
     }
+
+    /**
+     * Skip Stream items with skip()
+     */
+    @Test
+    void stream_skip(){
+        Stream<String> stream = Stream.of("hello", "world", "hello", "world"); //Modify this line
+
+        assertThat(stream).containsExactly("world", "hello", "world");
+    }
 }
