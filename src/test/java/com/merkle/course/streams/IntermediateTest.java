@@ -2,7 +2,6 @@ package com.merkle.course.streams;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -15,9 +14,9 @@ class IntermediateTest {
      */
     @Test
     void stream_map(){
-        Stream<String> stream = Stream.of(1, 2, 3, 4).map(Objects::toString);
+        Stream<String> stream = Stream.of("a", "b", "c", "d").map(String::toUpperCase);
 
-        assertThat(stream).containsExactly("1", "2", "3", "4");
+        assertThat(stream).containsExactly("A", "B", "C", "D");
     }
 
     /**
