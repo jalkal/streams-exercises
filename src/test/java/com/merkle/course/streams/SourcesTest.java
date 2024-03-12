@@ -3,7 +3,6 @@ package com.merkle.course.streams;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 class SourcesTest {
@@ -13,8 +12,8 @@ class SourcesTest {
      */
     @Test
     void stream_of(){
-        List<String> list = Stream.of("hello", "world").toList();
+        Stream<String> stream = Stream.of("hello", "world");
 
-        Assertions.assertThat(list).containsExactly("hello", "world");
+        Assertions.assertThat(stream.toList()).containsExactly("hello", "world");
     }
 }
