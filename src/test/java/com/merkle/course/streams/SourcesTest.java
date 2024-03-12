@@ -67,7 +67,7 @@ class SourcesTest {
      */
     @Test
     void stream_ofNullable(){
-        Stream<String> stream = Stream.of(null);
+        Stream<String> stream = Stream.ofNullable(null);
 
         assertThat(stream).isEmpty();
     }
