@@ -42,7 +42,7 @@ class SourcesTest {
     }
 
     /**
-     * Create Stream using Stream.range()
+     * Create Stream using IntStream.range()
      */
     @Test
     void stream_range(){
