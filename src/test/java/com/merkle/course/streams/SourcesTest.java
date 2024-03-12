@@ -15,7 +15,7 @@ class SourcesTest {
     void stream_of(){
         Stream<String> stream = null; //Modify this line
 
-        Assertions.assertThat(stream.toList()).containsExactly("hello", "world");
+        Assertions.assertThat(stream).containsExactly("hello", "world");
     }
 
     /**
