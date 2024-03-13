@@ -2,7 +2,7 @@
 
 # Exercises with Streams
 
-### 1 - Sources, open SourcesTest and make the tests pass
+### 1 - Sources operations, open SourcesTest and make the tests pass
 - Create Stream using `Stream.of()`
 - Create Stream using `Stream.generate()`
 - Create Stream using `Stream.iterate()`
@@ -10,7 +10,7 @@
 - Create Stream using `IntStream.rangeClosed()`
 - Create Stream using `Stream.ofNullable()`
 
-### 2 - Intermediate, open IntermediateTest and make the tests pass
+### 2 - Intermediate operations, open IntermediateTest and make the tests pass
 - Convert Stream items with `map()`
 - Convert Stream items with `flatMap()`
 - Filter Stream items with `filter()`
