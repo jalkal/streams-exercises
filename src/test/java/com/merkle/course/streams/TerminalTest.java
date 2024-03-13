@@ -3,15 +3,21 @@ package com.merkle.course.streams;
 import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TerminalTest {
 
-    Stream<Employee> employeeStream = Stream.of(new Employee("Steve", 185.00), new Employee("James", 200.00), new Employee("Craig", 170.00));
+    Stream<Employee> employeeStream = Stream.of(new Employee("Steve", 185.00, "sales"),
+            new Employee("James", 200.00, "sales"),
+            new Employee("Craig", 170.00, "technology"),
+            new Employee("Robert", 183.00, "technology"));
 
     /**
      * use Stream forEach to consume a Stream
@@ -97,6 +103,17 @@ class TerminalTest {
         assertThat(anySalaryHigherThan200).isFalse();
     }
 
-    record Employee(String name, Double salary) {
+    /**
+     * Group employees by department
+     */
+    @Test
+    void stream_groupBy(){
+
+        Map<String, List<Employee>> employeesByDepartment = null; //Modify this line
+        assertThat(employeesByDepartment).flatExtracting("sales").extracting("name").containsExactly("Steve", "James");
+        assertThat(employeesByDepartment).flatExtracting("technology").extracting("name").containsExactly("Craig", "Robert");
+    }
+
+    record Employee(String name, Double salary, String department) {
     }
 }
