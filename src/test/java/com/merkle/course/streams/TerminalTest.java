@@ -114,6 +114,22 @@ class TerminalTest {
         assertThat(employeesByDepartment).flatExtracting("technology").extracting("name").containsExactly("Craig", "Robert");
     }
 
+    /**
+     * Find min and max salaries of all employees
+     * I can be done with just one iteration
+     */
+    @Test
+    void stream_min_max() {
+        record MinMax(Double min, Double max) {
+        }
+
+        MinMax minMax = employeeStream.collect(Collectors.teeing(
+                Collectors.minBy(Comparator.comparing(Employee::salary)),
+                Collectors.maxBy(Comparator.comparing(Employee::salary)),
+                (min, max) -> new MinMax(min.map(Employee::salary).orElse(0.0), max.map(Employee::salary).orElse(0.0))));
+        assertThat(minMax).extracting("min", "max").containsExactly(170.00, 200.00);
+    }
+
     record Employee(String name, Double salary, String department) {
     }
 }
