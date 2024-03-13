@@ -27,3 +27,5 @@
 - Sum all elements of a stream
 - Average of all elements of a stream
 - Identify if a condition is meet in any stream item
+- Group by a field
+- Multiple collectors
