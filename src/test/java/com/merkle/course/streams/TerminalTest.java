@@ -127,13 +127,10 @@ class TerminalTest {
     @Test
     void stream_groupBy_max() {
 
-        Map<String, Double> maxSalaryByDepartment = employeeStream
-                .collect(Collectors.groupingBy(Employee::department,
+        Map<String, Double> maxSalaryByDepartment = employeeStream.collect(Collectors.groupingBy(Employee::department,
                         Collectors.collectingAndThen(
-                                Collectors.maxBy(Comparator.comparingDouble(Employee::salary)),
-                                max -> max.map(Employee::salary).orElse(0.0)
-                        )
-                ));
+                                Collectors.maxBy(Comparator.comparing(Employee::salary)),
+                                max -> max.map(Employee::salary).orElse(0.0))));
         assertThat(maxSalaryByDepartment).flatExtracting("sales").containsExactly(200.00);
         assertThat(maxSalaryByDepartment).flatExtracting("technology").containsExactly(183.00);
     }
