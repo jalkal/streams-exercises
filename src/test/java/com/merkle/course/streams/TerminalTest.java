@@ -18,7 +18,7 @@ class TerminalTest {
             new Employee("Robert", 183.00, "technology"));
 
     /**
-     * use Stream forEach to consume a Stream
+     * use Stream forEach to consume a Stream using forEach()
      */
     @Test
     void stream_forEach() {
@@ -42,7 +42,7 @@ class TerminalTest {
     }
 
     /**
-     * Get first employee from Stream from employeeStream
+     * Get first employee from employeeStream using findFirst()
      */
     @Test
     void stream_findFirst() {
@@ -52,7 +52,7 @@ class TerminalTest {
     }
 
     /**
-     * Get employee with the lowest salary from employeeStream
+     * Get employee with the lowest salary from employeeStream using min()
      */
     @Test
     void stream_min() {
@@ -62,7 +62,7 @@ class TerminalTest {
     }
 
     /**
-     * Get employee with the highest salary from employeeStream
+     * Get employee with the highest salary from employeeStream using max()
      */
     @Test
     void stream_max() {
@@ -72,40 +72,50 @@ class TerminalTest {
     }
 
     /**
-     * Get sum all employee salaries from employeeStream
+     * Get sum all employee salaries from employeeStream using sum()
      */
     @Test
     void stream_sum() {
 
         Double totalSalaries = null; //Modify this line
-        assertThat(totalSalaries).isEqualTo(555.00);
+        assertThat(totalSalaries).isEqualTo(738.00);
     }
 
     /**
-     * Get average of all employee salaries from employeeStream
+     * Get sum all employee salaries from employeeStream using reduce()
+     */
+    @Test
+    void stream_reduce() {
+
+        Double totalSalaries = employeeStream.mapToDouble(Employee::salary).reduce(0.0, Double::sum);
+        assertThat(totalSalaries).isEqualTo(738.00);
+    }
+
+    /**
+     * Get average of all employee salaries from employeeStream using average()
      */
     @Test
     void stream_average() {
 
         Double averageSalaries = null; //Modify this line
-        assertThat(averageSalaries).isEqualTo(185.00);
+        assertThat(averageSalaries).isEqualTo(184.50);
     }
 
     /**
-     * Find if any employee has a salary higher than 200.00 from employeeStream
+     * Find if any employee has a salary higher than 200.00 from employeeStream using anyMatch()
      */
     @Test
-    void stream_anyMatch(){
+    void stream_anyMatch() {
 
         Boolean anySalaryHigherThan200 = null; //Modify this line
         assertThat(anySalaryHigherThan200).isFalse();
     }
 
     /**
-     * Group employees by department
+     * Group employees by department using groupingBy()
      */
     @Test
-    void stream_groupBy(){
+    void stream_groupBy() {
 
         Map<String, List<Employee>> employeesByDepartment = null; //Modify this line
         assertThat(employeesByDepartment).flatExtracting("sales").extracting("name").containsExactly("Steve", "James");
@@ -113,7 +123,18 @@ class TerminalTest {
     }
 
     /**
-     * Find min and max salaries of all employees
+     * Find max salaries for each department using groupingBy() and maxBy()
+     */
+    @Test
+    void stream_groupBy_max() {
+
+        Map<String, Double> maxSalaryByDepartment = null; //Modify this line
+        assertThat(maxSalaryByDepartment).flatExtracting("sales").containsExactly(200.00);
+        assertThat(maxSalaryByDepartment).flatExtracting("technology").containsExactly(183.00);
+    }
+
+    /**
+     * Find min and max salaries of all employees using teeing() minBy() and maxBy()
      * I can be done with just one iteration
      */
     @Test
