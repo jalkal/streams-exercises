@@ -30,5 +30,5 @@
 - Group by a field
 - Multiple collectors
 
-### 4 - Extra bonus
+### 4 - Extra bonus, open ExtraBonusTest and make the test pass
 - Implement your own Collector 
