@@ -29,3 +29,6 @@
 - Identify if a condition is meet in any stream item
 - Group by a field
 - Multiple collectors
+
+### 4 - Extra bonus
+- Implement your own Collector 
