@@ -20,6 +20,7 @@ class IntermediateTest {
 
     /**
      * Convert Stream items with flatMap()
+     * consider a flatMap(Function<String, Stream<String>>)
      */
     @Test
     void stream_flatMap(){
