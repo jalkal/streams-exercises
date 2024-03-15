@@ -23,7 +23,7 @@ class IntermediateTest {
      */
     @Test
     void stream_flatMap(){
-        Stream<String> stream = Stream.of("hello", "world");
+        Stream<String> stream = Stream.of("hello", "world"); //Modify this line
 
         assertThat(stream).containsExactly("h", "e", "l", "l", "o", "w", "o", "r", "l", "d");
     }
