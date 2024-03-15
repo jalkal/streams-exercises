@@ -24,6 +24,7 @@ class ExtraBonusTest {
     /**
      * Implement your own stream collector, which collect all products and build an Order object with
      * OrderLines ordered by product name.
+     * It should work with parallel Stream
      */
     @Test
     void implement_collector() throws IOException {
@@ -47,8 +48,9 @@ class ExtraBonusTest {
             public BinaryOperator<Map<String, OrderLine>> combiner() {
                 return (map1, map2) -> {
                     map1.forEach((key, orderLine) -> map2.merge(key, orderLine,
-                            (orderLine1, orderLine2) -> new OrderLine(key, orderLine1.quantity() + orderLine2.quantity(), orderLine1.amount() + orderLine2.amount())));
-                    return map1;
+                            (orderLine1, orderLine2) ->
+                                    new OrderLine(key, orderLine1.quantity() + orderLine2.quantity(), orderLine1.amount() + orderLine2.amount())));
+                    return map2;
                 };
             }
 
@@ -62,11 +64,11 @@ class ExtraBonusTest {
 
             @Override
             public Set<Characteristics> characteristics() {
-                return Set.of(Characteristics.UNORDERED);
+                return Set.of(Characteristics.CONCURRENT);
             }
         };
 
-        Order order = productList.stream().collect(myProductCollector);
+        Order order = productList.parallelStream().collect(myProductCollector);
 
         assertThat(order.totalQuantity()).isEqualTo(44);
         assertThat(order.totalAmount()).isEqualTo(629.06);
