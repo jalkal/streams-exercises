@@ -35,8 +35,7 @@ class TerminalTest {
             }
         }
         ConsumerTest consumerTest = new ConsumerTest();
-        Stream<Integer> stream = Stream.of(5, 4, 3, 2, 1);
-        //Implement here
+        Stream.of(5, 4, 3, 2, 1); //Modify this line
 
         assertThat(consumerTest).extracting(ConsumerTest::getAccumulator).isEqualTo(15);
     }
@@ -87,7 +86,7 @@ class TerminalTest {
     @Test
     void stream_reduce() {
 
-        Double totalSalaries = employeeStream.mapToDouble(Employee::salary).reduce(0.0, Double::sum);
+        Double totalSalaries = null; //Modify this test
         assertThat(totalSalaries).isEqualTo(738.00);
     }
 
