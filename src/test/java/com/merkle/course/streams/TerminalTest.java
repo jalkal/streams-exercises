@@ -111,7 +111,7 @@ class TerminalTest {
     }
 
     /**
-     * Group employees by department using groupingBy()
+     * Group employees by department using collect(Collectors.groupingBy())
      */
     @Test
     void stream_groupBy() {
