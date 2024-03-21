@@ -122,6 +122,18 @@ class TerminalTest {
     }
 
     /**
+     * Get salary sum by department using groupingBy and summingDouble
+     */
+    @Test
+    void stream_groupBy_sum(){
+        Map<String, Double> sumSalaryByDepartment = employeeStream.collect(
+                Collectors.groupingBy(Employee::department, Collectors.summingDouble(Employee::salary)));
+
+        assertThat(sumSalaryByDepartment).flatExtracting("sales").containsExactly(385.00);
+        assertThat(sumSalaryByDepartment).flatExtracting("technology").containsExactly(353.00);
+    }
+
+    /**
      * Find max salaries for each department using groupingBy() and maxBy()
      */
     @Test
